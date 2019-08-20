@@ -9,35 +9,56 @@ If any of this isn't working, don't worry, our friendly team will be able to hel
 you on the day but it's important to have everything downloaded or you'll be
 waiting a while to get it onto your machine.
 
-### Mac OSX
+### MacOS (OS X)
 
-* Install [homebrew](http://brew.sh/) as it makes getting packages up and running easy.
-* Install Git using `brew install git` from a terminal.
-* Install nodejs using [NVM](https://github.com/creationix/nvm) (alternatively
-[follow the appropriate directions here](http://nodejs.org))
-* Install the CH340 Drivers - this is in a folder in this repo called
+Installing using the Homebrew package manager is the recommended approach
+as it makes getting packages up and running easy.
+
+Open the Macintosh terminal (`Applications/Utilities/Terminal.app`) and type
+the following commands
+
+* To install [homebrew](http://brew.sh/)
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+* Now install Git (for version control) and node (to install and mange Node.js)
+```
+brew install git node
+```
+* Close the terminal application by typing `exit` and then reopen it again so that your changes
+take affect
+
+Now that you have your tool chain installed we can procced to the Nodebots Day specific setup
+
+* Install the CH340 Drivers - this is in a folder called
 [drivers](drivers/CH34x_Install_V1.3.pkg)
+
+Now we need to install interchange, a package manage for nodebots. Open the
+Macintosh terminal (`Applications/Utilities/Terminal.app`) and type
+the following commands
+
 * Install [Interchange](https://github.com/johnny-five-io/nodebots-interchange)
 `npm install -g nodebots-interchange`
 
-Optionally you can also install the arduino IDE which you can use to write C
-code for your hardware.
+If this all installs without any errors then you're good to go.
 
-* Arduino - [Mac Install guide](http://arduino.cc/en/Guide/MacOSX)
+#### Manual installs
 
-Finally - attempt to install node-serialport as this will test everything is working:
+If you don't want to install using Homebrew then follow the various instructions given
+on these websites
 
-```
-	npm install serialport
-```
+* [Node Version Manager](https://github.com/creationix/nvm) then install the latest long term support version of Node.js with `nvm install --lts`
+* [Git version control](https://git-scm.com/)
+* [Arduino Mac Install guide](http://arduino.cc/en/Guide/MacOSX) NB This package is optional,
+you can use it to write C code for your hardware.
 
-If you can install node-serialport then you're pretty much good to go.
 
 ### Linux
 
 Linux is generally pretty straight forward. Install the following (assuming Ubuntu / Debian style machines):
 
 * Install Git `apt-get install git`
+* Install curl `apt-get install curl`
 * Install nodejs using [NVM](https://github.com/creationix/nvm) - alternatively
 [follow the appropriate directions here](http://nodejs.org). Don't use your
 package manager as the version won't be up to date enough to work with hardware.
@@ -62,7 +83,6 @@ Windows users can have the most problems with getting up and running of anyone.
 Please ensure you can install Johnny Five before coming to the event or you may
 slow down on the day.
 
-
 Install the following:
 
 * Git: [Windows Installer for Git](https://git-scm.com/downloads)
@@ -86,7 +106,7 @@ Next, if you have an arduino nano to hand, you might want to get it setup with f
 Make sure its connected to the PC by USB first, there should be a red LED lighting up when you do.
 
 ```
-interchange install StandardFirmata -a nano 
+interchange install StandardFirmata -a nano
 ```
 
 To test you've got Firmata running, you'll need a basic blink program. First install `simplebot` project.
